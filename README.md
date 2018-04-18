@@ -1,12 +1,12 @@
-# puppet module corp104_karaf_container
-[![Build Status](https://travis-ci.org/104corp/puppet-corp104_karaf_container.svg?branch=master)](https://travis-ci.org/104corp/puppet-corp104_karaf_container)
+# puppet module corp104_karaf
+[![Build Status](https://travis-ci.org/104corp/puppet-corp104_karaf.svg?branch=master)](https://travis-ci.org/104corp/puppet-corp104_karaf)
 
 
 #### Table of Contents
 
 1. [Description](#description)
-1. [Setup - The basics of getting started with corp104_karaf_container](#setup)
-    * [Beginning with corp104_karaf_container](#beginning-with-corp104_karaf_container)
+1. [Setup - The basics of getting started with corp104_karaf](#setup)
+    * [Beginning with corp104_karaf](#beginning-with-corp104_karaf)
 1. [Usage - Configuration options and additional functionality](#usage)
 1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 1. [Limitations - OS compatibility, etc.](#limitations)
@@ -14,22 +14,22 @@
 
 ## Description
 
-The corp104_karaf_container module installs, configures, and manages the corp104_karaf_container service across a range of operating systems and distributions.
+The corp104_karaf module installs, configures, and manages the corp104_karaf service across a range of operating systems and distributions.
 
 ## Setup
 
-### Beginning with corp104_karaf_container
+### Beginning with corp104_karaf
 
-`include '::corp104_karaf_container'` is enough to get you up and running.
+`include '::corp104_karaf'` is enough to get you up and running.
 
 ## Usage
 
-All parameters for the ntp module are contained within the main `::corp104_karaf_container` class, so for any function of the module, set the options you want. See the common usages below for examples.
+All parameters for the ntp module are contained within the main `::corp104_karaf` class, so for any function of the module, set the options you want. See the common usages below for examples.
 
-### Install and enable corp104_karaf_container
+### Install and enable corp104_karaf
 
 ```puppet
-include '::corp104_karaf_container'
+include '::corp104_karaf'
 ```
 
 
@@ -39,17 +39,17 @@ include '::corp104_karaf_container'
 
 #### Public classes
 
-* corp104_karaf_container: Main class, includes all other classes.
+* corp104_karaf: Main class, includes all other classes.
 
 #### Private classes
 
-* corp104_karaf_container::install Handles the packages.
-* corp104_karaf_container::config Handles the config.
-* corp104_karaf_container::service Handles the services.
+* corp104_karaf::install Handles the packages.
+* corp104_karaf::config Handles the config.
+* corp104_karaf::service Handles the services.
 
 ## Limitations
 
-This module cannot guarantee installation of corp104_karaf_container versions that are not available on  platform repositories.
+This module cannot guarantee installation of corp104_karaf versions that are not available on  platform repositories.
 
 This module is officially [supported](https://forge.puppetlabs.com/supported) for the following Java versions and platforms:
 

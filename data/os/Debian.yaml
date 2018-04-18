@@ -1,1 +1,1 @@
-corp104_karaf_container::profile: '/etc/bash.bashrc'
+corp104_karaf::profile: '/etc/bash.bashrc'

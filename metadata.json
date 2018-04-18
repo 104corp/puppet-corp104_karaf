@@ -1,16 +1,16 @@
 {
-  "name": "104corp-corp104_karaf_container",
-  "description": "corp104_karaf_container Module for Debian, Ubuntu, CentOS and RHEL.",
+  "name": "104corp-corp104_karaf",
+  "description": "corp104_karaf Module for Debian, Ubuntu, CentOS and RHEL.",
   "version": "0.0.1",
   "author": "104corp",
   "summary": "Install, deploysm, and configures AWS agent services.",
   "license": "Apache-2.0",
-  "source": "https://github.com/104corp/corp104_karaf_container",
-  "project_page": "https://github.com/104corp/corp104_karaf_container",
-  "issues_url": "https://github.com/104corp/corp104_karaf_container/issues",
+  "source": "https://github.com/104corp/corp104_karaf",
+  "project_page": "https://github.com/104corp/corp104_karaf",
+  "issues_url": "https://github.com/104corp/corp104_karaf/issues",
     "tags": [
     "104",
-    "karaf_container",
+    "karaf",
     "puppet"
   ],
   "dependencies": [

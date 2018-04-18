@@ -1,7 +1,7 @@
-# Class: corp104_karaf_container
+# Class: corp104_karaf
 # ===========================
 #
-# Full description of class corp104_karaf_container here.
+# Full description of class corp104_karaf here.
 #
 # Parameters
 # ----------
@@ -28,7 +28,7 @@
 # --------
 #
 # @example
-#    class { 'corp104_karaf_container':
+#    class { 'corp104_karaf':
 #      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #    }
 #
@@ -42,15 +42,15 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class corp104_karaf_container (
-  String $http_proxy,
+class corp104_karaf (
+  Optional[String] $http_proxy,
   String $version,
 ){
-  contain corp104_karaf_container::install
-  contain corp104_karaf_container::config
-  contain corp104_karaf_container::service
+  contain corp104_karaf::install
+  contain corp104_karaf::config
+  contain corp104_karaf::service
 
-  Class['::corp104_karaf_container::install']
-  -> Class['::corp104_karaf_container::config']
-  ~> Class['::corp104_karaf_container::service']
+  Class['::corp104_karaf::install']
+  -> Class['::corp104_karaf::config']
+  ~> Class['::corp104_karaf::service']
 }

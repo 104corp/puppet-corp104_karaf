@@ -1,26 +1,26 @@
-class corp104_karaf_container::install inherits corp104_karaf_container {
+class corp104_karaf::install inherits corp104_karaf {
 
-  if $manage_java {
+  # if $manage_java {
     
-  }
-  else {
+  # }
+  # else {
     
-  }
+  # }
 
-  $karaf_container_downlod_url = "http://www.apache.org/dyn/closer.lua/karaf_container/${corp104_karaf_container::version}/apache-karaf_container-${corp104_karaf_container::version}-src.tar.gz
+  $karaf_downlod_url = "http://apache.stu.edu.tw/karaf/${corp104_karaf::version}/apache-karaf-${corp104_karaf::version}-src.tar.gz
 "
 
-  if $corp104_karaf_container::http_proxy {
-    exec { 'download-karaf_container':
+  if $corp104_karaf::http_proxy {
+    exec { 'download-karaf':
       provider => 'shell',
-      command  => "curl -x ${corp104_karaf_container::http_proxy} -o ${corp104_karaf_container::install_tmp} -O ${karaf_container_downlod_url}",
+      command  => "curl -x ${corp104_karaf::http_proxy} -o ${corp104_karaf::install_tmp} -O ${karaf_downlod_url}",
       path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
     }
   }
   else {
-    exec { 'download-karaf_container':
+    exec { 'download-karaf':
       provider => 'shell',
-      command  => "curl -o ${corp104_karaf_container::install_tmp} -O ${karaf_container_downlod_url}",
+      command  => "curl -o ${corp104_karaf::install_tmp} -O ${karaf_downlod_url}",
       path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
     }
   }

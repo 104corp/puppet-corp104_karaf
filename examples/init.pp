@@ -9,4 +9,4 @@
 # Learn more about module testing here:
 # https://docs.puppet.com/guides/tests_smoke.html
 #
-include ::corp104_karaf_container
+include ::corp104_karaf
