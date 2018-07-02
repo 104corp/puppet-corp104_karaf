@@ -1,3 +1,4 @@
 corp104_karaf::version: '4.2.0'
-corp104_karaf::install_tmp: '/tmp'
+corp104_karaf::tmp_path: '/tmp'
+corp104_karaf::install_path: '/opt/karaf'
 corp104_karaf::http_proxy: ~
