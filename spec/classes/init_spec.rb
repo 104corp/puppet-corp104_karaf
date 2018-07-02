@@ -14,7 +14,7 @@ describe 'corp104_karaf', :type => 'class' do
     it do
       should contain_class('corp104_karaf')
       should contain_class('corp104_karaf::install')
-			should contain_class('corp104_karaf::config')
+      should contain_class('corp104_karaf::config')
       should contain_class('corp104_karaf::service')
     end
 
