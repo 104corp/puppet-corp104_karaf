@@ -44,8 +44,8 @@ class corp104_karaf::install inherits corp104_karaf {
   # Copy file
   file { 'karaf':
     ensure             => present,
-    source             => $::karaf_unpackage_path,
-    path               => $::corp104_karaf::install_path,
+    source             => "${karaf_unpackage_path}",
+    path               => "${corp104_karaf::install_path}",
     recurse            => true,
     replace            => false,
     source_permissions => use,

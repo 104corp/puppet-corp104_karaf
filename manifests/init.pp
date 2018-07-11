@@ -46,7 +46,8 @@ class corp104_karaf (
   Optional[String] $http_proxy,
   String $version,
   String $tmp_path,
-  String $install_path
+  String $install_path,
+  String $ppa_openjdk
 ){
   class { '::corp104_java':
     jdk_version => '8',
