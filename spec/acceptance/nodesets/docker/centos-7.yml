@@ -7,6 +7,6 @@ HOSTS:
     docker_cmd: '["/usr/sbin/init"]'
     # install various tools required to get the image up to usable levels
     docker_image_commands:
-      - 'yum install -y crontabs tar wget openssl sysvinit-tools iproute which initscripts'
+      - 'yum install -y crontabs tar wget openssl sysvinit-tools iproute which initscripts psmisc'
 CONFIG:
   trace_limit: 200
