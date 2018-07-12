@@ -49,11 +49,6 @@ class corp104_karaf (
   String $install_path,
   String $ppa_openjdk
 ){
-  class { '::corp104_java':
-    jdk_version => '8',
-    jdk_type    => 'openjdk',
-  }
-  include '::corp104_java'
 
   contain corp104_karaf::install
   contain corp104_karaf::config

@@ -1,4 +1,4 @@
-define corp104_karaf::openjdk_java inherits corp104_karaf (
+class corp104_karaf::openjdk_java inherits corp104_karaf {
   $package_name = 'openjdk-8-jre'
   $java_home    = '/usr/lib/jvm/java-8-openjdk-amd64'
 
@@ -8,7 +8,7 @@ define corp104_karaf::openjdk_java inherits corp104_karaf (
     notify => Exec['install-ppa'],
   }
 
-  if if $corp104_karaf::http_proxy {
+  if $corp104_karaf::http_proxy {
     exec { 'install-ppa':
       path        => '/bin:/usr/sbin:/usr/bin:/sbin',
       environment => [
@@ -19,8 +19,7 @@ define corp104_karaf::openjdk_java inherits corp104_karaf (
       unless      => "/usr/bin/dpkg -l | grep ${package_name}",
       before      => Package[$package_name],
     }
-  }
-  else {
+  } else {
     exec { 'install-ppa':
       path    => '/bin:/usr/sbin:/usr/bin:/sbin',
       command => "add-apt-repository -y ${corp104_karaf::ppa_openjdk} && apt-get update",
