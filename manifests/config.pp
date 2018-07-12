@@ -36,6 +36,8 @@ class corp104_karaf::config inherits corp104_karaf {
       path        => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
       subscribe   => Exec['start karaf'],
       refreshonly => true,
+      tries       => 3,
+      try_sleep   => 1,
     }
   }
 
