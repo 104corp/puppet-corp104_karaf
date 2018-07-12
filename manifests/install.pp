@@ -11,7 +11,7 @@ class corp104_karaf::install inherits corp104_karaf {
     provider => 'shell',
     command  => "curl ${karaf_sha512sum_url} > ${karaf_sha512sum_path}",
     path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
-    unless   => 'test -e ${karaf_sha512sum_path}',
+    unless   => "test -e ${karaf_sha512sum_path}",
   }
 
   # Download karaf
