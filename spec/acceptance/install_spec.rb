@@ -6,8 +6,8 @@ describe 'install corp104_karaf' do
       pp = "class { 'corp104_karaf': }"
 
       # Run it twice and test for idempotency
-      apply_manifest(pp, :catch_failures => false)
-      apply_manifest(pp, :catch_changes => false)
+      apply_manifest(pp, :catch_failures => true)
+      apply_manifest(pp, :catch_changes => true)
     end
   end
 end
