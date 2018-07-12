@@ -10,18 +10,4 @@ describe 'install corp104_karaf' do
       apply_manifest(pp, :catch_changes => false)
     end
   end
-
-  context 'change node version' do
-    it 'should install package' do
-      pp = <<-EOS
-        class { 'corp104_karaf':
-          node_version => '8.8.0'
-        }
-      EOS
-
-      # Run it twice and test for idempotency
-      apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_changes => true)
-    end
-  end
 end
