@@ -13,8 +13,9 @@ describe 'corp104_karaf', :type => 'class' do
     end
     it do
       should contain_class('corp104_karaf')
+      should contain_class('corp104_karaf::openjdk_java')
       should contain_class('corp104_karaf::install')
-			should contain_class('corp104_karaf::config')
+      should contain_class('corp104_karaf::config')
       should contain_class('corp104_karaf::service')
     end
 

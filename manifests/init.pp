@@ -45,7 +45,11 @@
 class corp104_karaf (
   Optional[String] $http_proxy,
   String $version,
+  String $tmp_path,
+  String $install_path,
+  String $ppa_openjdk
 ){
+
   contain corp104_karaf::install
   contain corp104_karaf::config
   contain corp104_karaf::service
