@@ -41,5 +41,12 @@ class corp104_karaf::config inherits corp104_karaf {
     }
   }
 
+  exec { 'stop karaf':
+    provider    => 'shell',
+    command     => "${corp104_karaf::install_path}/bin/stop",
+    path        => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+    subscribe   => Exec['start karaf'],
+    refreshonly => true,
+  }
 }
 
