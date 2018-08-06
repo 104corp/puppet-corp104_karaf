@@ -44,6 +44,7 @@
 #
 class corp104_karaf (
   Optional[String] $http_proxy,
+  Boolean $jdk_enable,
   String $version,
   String $tmp_path,
   String $install_path,
