@@ -4,13 +4,13 @@ class corp104_karaf::openjdk_java inherits corp104_karaf {
   $java_home    = '/usr/lib/jvm/java-8-openjdk-amd64'
 
   $add_apt_package = [ 'python-software-properties', 'software-properties-common' ]
-  package { $add_apt_package:
+  Package <| title == $add_apt_package |> {
     ensure => present,
     notify => Exec['install-ppa'],
   }
 
   if $corp104_karaf::http_proxy {
-    exec { 'install-ppa':
+    Exec <| title == 'install-ppa' |> {
       path        => '/bin:/usr/sbin:/usr/bin:/sbin',
       environment => [
         "http_proxy=${corp104_karaf::http_proxy}",
@@ -21,7 +21,7 @@ class corp104_karaf::openjdk_java inherits corp104_karaf {
       before      => Package[$package_jre],
     }
   } else {
-    exec { 'install-ppa':
+    Exec <| title == 'install-ppa' |> {
       path    => '/bin:/usr/sbin:/usr/bin:/sbin',
       command => "add-apt-repository -y ${corp104_karaf::ppa_openjdk} && apt-get update",
       user    => 'root',
