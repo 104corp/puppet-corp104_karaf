@@ -1,6 +1,6 @@
 class corp104_karaf::install inherits corp104_karaf {
 
-  $karaf_download_url = "http://ftp.twaren.net/Unix/Web/apache/karaf/${corp104_karaf::version}/apache-karaf-${corp104_karaf::version}.tar.gz"
+  $karaf_download_url ="http://www-eu.apache.org/dist/karaf/${corp104_karaf::version}/apache-karaf-${corp104_karaf::version}.tar.gz"
   $karaf_sha512sum_url = "https://www.apache.org/dist/karaf/${corp104_karaf::version}/apache-karaf-${corp104_karaf::version}.tar.gz.sha512"
   $karaf_download_path = "${corp104_karaf::tmp_path}/apache-karaf-${corp104_karaf::version}.tar.gz"
   $karaf_sha512sum_path = "${corp104_karaf::tmp_path}/karaf.sha512sum"
