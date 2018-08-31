@@ -19,6 +19,7 @@ class corp104_karaf::openjdk_java inherits corp104_karaf {
         path        => '/bin:/usr/sbin:/usr/bin:/sbin',
         environment => [
           "http_proxy=${corp104_karaf::http_proxy}",
+          "https_proxy=${corp104_karaf::http_proxy}"
         ],
         command     => "add-apt-repository -y ${corp104_karaf::ppa_openjdk} && apt-get update",
         user        => 'root',
