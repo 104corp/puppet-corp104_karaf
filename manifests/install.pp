@@ -9,16 +9,15 @@ class corp104_karaf::install inherits corp104_karaf {
   # Java 
   include corp104_karaf::openjdk_java
 
-  # Download sha512sum first
-  exec { 'download-karaf-sha512sum':
-    provider => 'shell',
-    command  => "curl ${karaf_sha512sum_url} > ${karaf_sha512sum_path}",
-    path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
-    unless   => "test -e ${karaf_sha512sum_path}",
-  }
-
   # Download karaf
   if $corp104_karaf::http_proxy {
+    exec { 'download-karaf-sha512sum':
+      provider => 'shell',
+      command  => "curl -x ${corp104_karaf::http_proxy} ${karaf_sha512sum_url} > ${karaf_sha512sum_path}",
+      path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+      unless   => "test -e ${karaf_sha512sum_path}",
+    }
+
     exec { 'download-karaf':
       provider => 'shell',
       command  => "curl -x ${corp104_karaf::http_proxy} -o ${karaf_download_path} -O ${karaf_download_url}",
@@ -27,6 +26,13 @@ class corp104_karaf::install inherits corp104_karaf {
     }
   }
   else {
+    exec { 'download-karaf-sha512sum':
+      provider => 'shell',
+      command  => "curl ${karaf_sha512sum_url} > ${karaf_sha512sum_path}",
+      path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+      unless   => "test -e ${karaf_sha512sum_path}",
+    }
+
     exec { 'download-karaf':
       provider => 'shell',
       command  => "curl -o ${karaf_download_path} -O ${karaf_download_url}",
