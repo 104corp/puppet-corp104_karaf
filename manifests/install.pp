@@ -11,6 +11,19 @@ class corp104_karaf::install inherits corp104_karaf {
 
   # Download karaf
   if $corp104_karaf::http_proxy {
+
+    # set mvn behind proxy
+    $proxy_ip_and_port = split($corp104_karaf::http_proxy, '//')[1]
+    $proxy_ip = split($proxy_ip_and_port, ':')[0]
+    $proxy_port = split($proxy_ip_and_port, ':')[1]
+    file{"/root/.m2":
+      ensure  =>  directory,
+    }
+    file { '/root/.m2/settings.xml':
+      ensure  => 'present',
+      content => template('corp104_karaf/settings.xml.erb'),
+    }
+
     exec { 'download-karaf-sha512sum':
       provider => 'shell',
       command  => "curl -x ${corp104_karaf::http_proxy} ${karaf_sha512sum_url} > ${karaf_sha512sum_path}",
