@@ -71,5 +71,6 @@ class corp104_karaf::install inherits corp104_karaf {
     recurse            => true,
     replace            => false,
     source_permissions => use,
+    subscribe   => Exec['unpackage karaf'],
   }
 }
