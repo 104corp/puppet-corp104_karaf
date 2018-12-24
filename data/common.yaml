@@ -1,5 +1,5 @@
 corp104_karaf::version: '4.2.1'
-corp104_karaf::tmp_path: '/tmp'
+corp104_karaf::tmp_path: '/root'
 corp104_karaf::install_path: '/opt/karaf'
 corp104_karaf::http_proxy: ~
 corp104_karaf::ppa_openjdk: 'ppa:openjdk-r/ppa'
