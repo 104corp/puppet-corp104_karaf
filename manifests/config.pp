@@ -18,7 +18,7 @@ class corp104_karaf::config inherits corp104_karaf {
 
   exec { 'upgrad cxf':
     provider    => 'shell',
-    command     => "${corp104_karaf::install_path}/bin/client feature:repo-remove cxf && ${corp104_karaf::install_path}/bin/client feature:repo-add cxf 3.2.4",
+    command     => "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 && ${corp104_karaf::install_path}/bin/client feature:repo-remove cxf && ${corp104_karaf::install_path}/bin/client feature:repo-add cxf 3.2.4",
     path        => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
     subscribe   => Exec['start karaf'],
     refreshonly => true,
@@ -32,7 +32,7 @@ class corp104_karaf::config inherits corp104_karaf {
   $required_features.each |String $feature| {
     exec { "install karaf feature: ${feature}":
       provider    => 'shell',
-      command     => "${corp104_karaf::install_path}/bin/client feature:install ${feature}",
+      command     => "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 && ${corp104_karaf::install_path}/bin/client feature:install ${feature}",
       path        => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
       subscribe   => Exec['start karaf'],
       refreshonly => true,
