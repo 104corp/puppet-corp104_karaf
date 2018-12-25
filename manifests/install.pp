@@ -16,7 +16,7 @@ class corp104_karaf::install inherits corp104_karaf {
     $proxy_ip_and_port = split($corp104_karaf::http_proxy, '//')[1]
     $proxy_ip = split($proxy_ip_and_port, ':')[0]
     $proxy_port = split($proxy_ip_and_port, ':')[1]
-    file{"/root/.m2":
+    file{ '/root/.m2':
       ensure  =>  directory,
     }
     file { '/root/.m2/settings.xml':
@@ -71,6 +71,6 @@ class corp104_karaf::install inherits corp104_karaf {
     recurse            => true,
     replace            => false,
     source_permissions => use,
-    subscribe   => Exec['unpackage karaf'],
+    subscribe          => Exec['unpackage karaf'],
   }
 }
