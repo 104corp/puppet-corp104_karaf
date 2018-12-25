@@ -72,5 +72,6 @@ class corp104_karaf::install inherits corp104_karaf {
     replace            => false,
     source_permissions => use,
     subscribe          => Exec['unpackage karaf'],
+    unless             => "test -e $corp104_karaf::install_path",
   }
 }
