@@ -48,7 +48,11 @@ class corp104_karaf (
   String $version,
   String $tmp_path,
   String $install_path,
-  String $ppa_openjdk
+  String $ppa_openjdk,
+  String $karaf_download_url,
+  String $karaf_sha512sum_url,
+  String $karaf_tar_filename,
+  String $karaf_unpackage_dir
 ){
 
   contain corp104_karaf::install

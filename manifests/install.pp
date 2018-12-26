@@ -1,10 +1,8 @@
 class corp104_karaf::install inherits corp104_karaf {
 
-  $karaf_download_url ="http://www-eu.apache.org/dist/karaf/${corp104_karaf::version}/apache-karaf-${corp104_karaf::version}.tar.gz"
-  $karaf_sha512sum_url = "https://www.apache.org/dist/karaf/${corp104_karaf::version}/apache-karaf-${corp104_karaf::version}.tar.gz.sha512"
-  $karaf_download_path = "${corp104_karaf::tmp_path}/apache-karaf-${corp104_karaf::version}.tar.gz"
+  $karaf_download_path = "${corp104_karaf::tmp_path}/${karaf_tar_filename}"
   $karaf_sha512sum_path = "${corp104_karaf::tmp_path}/karaf.sha512sum"
-  $karaf_unpackage_path = "${corp104_karaf::tmp_path}/apache-karaf-${corp104_karaf::version}"
+  $karaf_unpackage_path = "${corp104_karaf::tmp_path}/${karaf_unpackage_dir}"
 
   # Java 
   include corp104_karaf::openjdk_java
