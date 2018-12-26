@@ -52,7 +52,8 @@ class corp104_karaf (
   String $karaf_download_url,
   String $karaf_sha512sum_url,
   String $karaf_tar_filename,
-  String $karaf_unpackage_dir
+  String $karaf_unpackage_dir,
+  Boolean $download_karaf_through_proxt,
 ){
 
   contain corp104_karaf::install

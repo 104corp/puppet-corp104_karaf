@@ -8,4 +8,4 @@ corp104_karaf::karaf_download_url: 'https://www-eu.apache.org/dist/karaf/4.2.2/a
 corp104_karaf::karaf_sha512sum_url: 'https://www.apache.org/dist/karaf/4.2.2/apache-karaf-4.2.2.tar.gz.sha512' 
 corp104_karaf::karaf_tar_filename: 'apache-karaf-4.2.2.tar.gz'
 corp104_karaf::karaf_unpackage_dir: 'apache-karaf-4.2.2'
-
+corp104_karaf::download_karaf_through_proxt: false
