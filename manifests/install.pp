@@ -35,7 +35,8 @@ class corp104_karaf::install inherits corp104_karaf {
       provider => 'shell',
       command  => "curl -x ${corp104_karaf::http_proxy} -o ${karaf_download_path} -O ${corp104_karaf::karaf_download_url}",
       path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
-      unless   => "cd ${corp104_karaf::tmp_path} && sha512sum -c ${karaf_sha512sum_path}",
+      subscribe   => Exec['download-karaf-sha512sum'],
+      refreshonly => true,
     }
   }
   else {
@@ -47,11 +48,21 @@ class corp104_karaf::install inherits corp104_karaf {
     }
 
     exec { 'download-karaf':
-      provider => 'shell',
-      command  => "curl -o ${karaf_download_path} -O ${corp104_karaf::karaf_download_url}",
-      path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
-      unless   => "cd ${corp104_karaf::tmp_path} && sha512sum -c ${karaf_sha512sum_path}",
+      provider    => 'shell',
+      command     => "curl -o ${karaf_download_path} -O ${corp104_karaf::karaf_download_url}",
+      path        => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+      subscribe   => Exec['download-karaf-sha512sum'],
+      refreshonly => true,
     }
+  }
+
+  # Measure checksum
+  exec { 'measure checksum':
+    provider    => 'shell',
+    command     => "cd ${corp104_karaf::tmp_path} && sha512sum -c ${karaf_sha512sum_path}",
+    path        => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+    subscribe   => Exec['download-karaf'],
+    refreshonly => true,
   }
 
   # Unpackage
@@ -60,7 +71,7 @@ class corp104_karaf::install inherits corp104_karaf {
     command     => "tar xvf ${karaf_download_path} -C ${corp104_karaf::tmp_path}",
     path        => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
     refreshonly => true,
-    subscribe   => Exec['download-karaf'],
+    subscribe   => Exec['measure checksum'],
   }
 
   # Copy file
