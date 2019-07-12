@@ -1,11 +1,11 @@
-corp104_karaf::version: '4.2.5'
+corp104_karaf::version: '4.2.6'
 corp104_karaf::tmp_path: '/root'
 corp104_karaf::install_path: '/opt/karaf'
 corp104_karaf::http_proxy: ~
 corp104_karaf::ppa_openjdk: 'ppa:openjdk-r/ppa'
 corp104_karaf::jdk_enable: false
-corp104_karaf::karaf_download_url: 'https://www-eu.apache.org/dist/karaf/4.2.5/apache-karaf-4.2.5.tar.gz'
-corp104_karaf::karaf_sha512sum_url: 'https://www.apache.org/dist/karaf/4.2.5/apache-karaf-4.2.5.tar.gz.sha512'
-corp104_karaf::karaf_tar_filename: 'apache-karaf-4.2.5.tar.gz'
-corp104_karaf::karaf_unpackage_dir: 'apache-karaf-4.2.5'
+corp104_karaf::karaf_download_url: 'https://www-eu.apache.org/dist/karaf/4.2.6/apache-karaf-4.2.6.tar.gz'
+corp104_karaf::karaf_sha512sum_url: 'https://www.apache.org/dist/karaf/4.2.6/apache-karaf-4.2.6.tar.gz.sha512'
+corp104_karaf::karaf_tar_filename: 'apache-karaf-4.2.6.tar.gz'
+corp104_karaf::karaf_unpackage_dir: 'apache-karaf-4.2.6'
 corp104_karaf::download_karaf_through_proxt: false
