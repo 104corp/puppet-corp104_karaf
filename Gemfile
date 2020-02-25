@@ -45,14 +45,17 @@ end
 group :system_tests do
   gem "puppet-module-posix-system-r#{minor_version}",                            :require => false, :platforms => "ruby"
   gem "puppet-module-win-system-r#{minor_version}",                              :require => false, :platforms => ["mswin", "mingw", "x64_mingw"]
-  gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '>= 4')                  
+  gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '>= 3')                  
   gem "beaker-pe",                                                               :require => false
-  gem "beaker-rspec", *location_for('6.2.4')
+  gem "beaker-rspec", *location_for(ENV['BEAKER_RSPEC_VERSION'])                
   gem "beaker-hostgenerator", *location_for(ENV['BEAKER_HOSTGENERATOR_VERSION'])
   gem "beaker-abs", *location_for(ENV['BEAKER_ABS_VERSION'] || '~> 0.1')        
 end
 
-gem 'puppet', *location_for(ENV['PUPPET_GEM_VERSION'])
+gem 'puppet', *location_for(ENV['PUPPET_GEM_VERSION'] || '~> 5.5')
+gem 'librarian-puppet'
+gem 'yard', '>= 0.9.20'
+gem 'puppet-syntax', '~> 2.4'
 
 # Only explicitly specify Facter/Hiera if a version has been specified.
 # Otherwise it can lead to strange bundler behavior. If you are seeing weird

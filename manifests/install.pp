@@ -32,9 +32,9 @@ class corp104_karaf::install inherits corp104_karaf {
       unless   => "test -e ${karaf_sha512sum_path}",
     }
     exec { 'download-karaf':
-      provider => 'shell',
-      command  => "curl -x ${corp104_karaf::http_proxy} -o ${karaf_download_path} -O ${corp104_karaf::karaf_download_url}",
-      path     => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
+      provider    => 'shell',
+      command     => "curl -x ${corp104_karaf::http_proxy} -o ${karaf_download_path} -O ${corp104_karaf::karaf_download_url}",
+      path        => '/bin:/usr/bin:/usr/local/bin:/usr/sbin',
       subscribe   => Exec['download-karaf-sha512sum'],
       refreshonly => true,
     }
