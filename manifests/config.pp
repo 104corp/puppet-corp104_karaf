@@ -31,7 +31,7 @@ class corp104_karaf::config inherits corp104_karaf {
     require     => Exec['remove original cxf repo']
   }
 
-  $required_features = ['webconsole', 'cxf', 'cxf-jaxrs', 'http-whiteboard', 'http', 'cxf-jaxws', 'aries-blueprint']
+  $required_features = ['webconsole', 'cxf', 'cxf-jaxrs', 'http-whiteboard', 'http', 'cxf-jaxws', 'aries-blueprint', 'jndi']
 
   $required_features.each |String $feature| {
     exec { "install karaf feature: ${feature}":

@@ -1,7 +1,7 @@
 {
   "name": "104corp-corp104_karaf",
   "description": "corp104_karaf Module for Debian, Ubuntu, CentOS and RHEL.",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "author": "104corp",
   "summary": "Install, deploysm, and configures AWS agent services.",
   "license": "Apache-2.0",
