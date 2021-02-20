@@ -6,9 +6,9 @@ cache:
     - .tmp/librarian/cache
 before_install:
 #- gem install rubygems-update
-- gem update --system
-- gem update bundler
-- gem install bundler -v '1.17.3'
+#- gem update --system
+#- gem update bundler
+- gem install bundler -v '2.1.4'
 - bundle --version
 #- rm -f Gemfile.lock
 matrix:
