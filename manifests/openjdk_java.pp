@@ -3,7 +3,9 @@ class corp104_karaf::openjdk_java inherits corp104_karaf {
   $package_jdk = 'openjdk-8-jdk'
   $java_home    = '/usr/lib/jvm/java-8-openjdk-amd64'
 
-  $add_apt_packages = [ 'python-software-properties', 'software-properties-common' ]
+  # remove python-software-properties that only support for ubuntu <= 12.04
+  # replace it with software-python-common for ubuntu >= 12.10
+  $add_apt_packages = [ 'software-properties-common' ]
   $add_apt_packages.each | String $add_apt_package| {
     if ! defined(Package[$add_apt_package]){
       package { $add_apt_package:
